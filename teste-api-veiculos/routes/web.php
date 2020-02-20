@@ -11,6 +11,14 @@
 |
 */
 
+use App\Http\Controllers\VeiculosController;
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/api/veiculos/cadastrar', 'VeiculosController@store');
+Route::post('/api/veiculos/cadastrar', 'VeiculosController@store');
+Route::get('/api/veiculos/{id?}', 'VeiculosController@show');
+Route::put('/api/veiculos/atualizar/{id}', 'VeiculosController@update');
+Route::delete('/api/veiculos/deletar/{id}', 'VeiculosController@destroy');
